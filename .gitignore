@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+.venv/
+renombrados_BIM/
+# Credenciales locales: nunca subir
+enlace_fijo.json
+.bim_doc_manager_theme.json
+*.log
