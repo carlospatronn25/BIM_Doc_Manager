@@ -1,0 +1,151 @@
+NOTA: ejecutado en un entorno Linux sin Tkinter; por eso test_theme no se pudo importar (1 error de entorno, no del programa).
+Las otras 44 pruebas pasaron. En Windows con Python estándar se ejecutan las 47.
+Comando: python -m unittest discover -s tests -v
+
+test_copy_preserves_original (test_core.CoreTests.test_copy_preserves_original) ... ok
+test_description_is_upper_camel_case (test_core.CoreTests.test_description_is_upper_camel_case) ... ok
+test_duplicate_names_are_both_blocked (test_core.CoreTests.test_duplicate_names_are_both_blocked) ... ok
+test_form_validation_partial_accepts_volume_code (test_core.CoreTests.test_form_validation_partial_accepts_volume_code) ... ok
+test_form_validation_reports_multiple_errors (test_core.CoreTests.test_form_validation_reports_multiple_errors) ... ok
+test_form_validation_reports_project_length (test_core.CoreTests.test_form_validation_reports_project_length) ... ok
+test_invalid_document_type_is_blocked (test_core.CoreTests.test_invalid_document_type_is_blocked) ... ok
+test_invalid_number_does_not_crash_engine (test_core.CoreTests.test_invalid_number_does_not_crash_engine) ... ok
+test_missing_required_data_is_pending (test_core.CoreTests.test_missing_required_data_is_pending) ... ok
+test_proposes_name_using_manual_field_order (test_core.CoreTests.test_proposes_name_using_manual_field_order) ... ok
+test_revision_requires_four_digits (test_core.CoreTests.test_revision_requires_four_digits) ... ok
+test_scan_file_and_folder_without_double_counting (test_core.CoreTests.test_scan_file_and_folder_without_double_counting) ... ok
+test_scan_files_in_different_folders_with_same_name (test_core.CoreTests.test_scan_files_in_different_folders_with_same_name) ... ok
+test_scan_folder_skips_existing_generated_files (test_core.CoreTests.test_scan_folder_skips_existing_generated_files) ... ok
+test_scan_individual_file (test_core.CoreTests.test_scan_individual_file) ... ok
+test_scan_multiple_files (test_core.CoreTests.test_scan_multiple_files) ... ok
+test_scan_recursively_finds_documents_but_skips_output_and_csv (test_core.CoreTests.test_scan_recursively_finds_documents_but_skips_output_and_csv) ... ok
+test_state_and_revision_are_appended_in_order (test_core.CoreTests.test_state_and_revision_are_appended_in_order) ... ok
+test_cannot_delete_document_from_other_session (test_delete_documents.DeleteDocumentsTests.test_cannot_delete_document_from_other_session) ... 127.0.0.1 - - [26/Nov/2026 00:49:10] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:10] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:10] "POST /api/delete HTTP/1.1" 400 -
+ok
+test_clear_all_only_own_session (test_delete_documents.DeleteDocumentsTests.test_clear_all_only_own_session) ... 127.0.0.1 - - [26/Nov/2026 00:49:10] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:10] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:10] "POST /api/clear HTTP/1.1" 200 -
+ok
+test_delete_generated_copies_only_for_selected_document (test_delete_documents.DeleteDocumentsTests.test_delete_generated_copies_only_for_selected_document) ... 127.0.0.1 - - [26/Nov/2026 00:49:11] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "POST /api/update HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "POST /api/update HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "GET /api/outputs HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "POST /api/delete HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "GET /api/outputs HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "GET /api/download HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "GET /api/report HTTP/1.1" 200 -
+ok
+test_delete_selected_preserves_others_and_allows_reupload (test_delete_documents.DeleteDocumentsTests.test_delete_selected_preserves_others_and_allows_reupload) ... 127.0.0.1 - - [26/Nov/2026 00:49:11] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "POST /api/delete HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:11] "GET /api/status HTTP/1.1" 200 -
+ok
+test_frontend_has_conditional_trash_and_bulk_reset (test_delete_documents.DeleteDocumentsTests.test_frontend_has_conditional_trash_and_bulk_reset) ... 127.0.0.1 - - [26/Nov/2026 00:49:12] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:12] "POST /api/session HTTP/1.1" 200 -
+ok
+test_invalid_delete_is_atomic (test_delete_documents.DeleteDocumentsTests.test_invalid_delete_is_atomic) ... 127.0.0.1 - - [26/Nov/2026 00:49:12] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:12] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:12] "POST /api/delete HTTP/1.1" 400 -
+ok
+test_api_compatible_con_tuneles (test_enlace_fijo.TestEnlaceFijo.test_api_compatible_con_tuneles) ... ok
+test_api_ngrok_valida_servidor_del_mismo_puerto (test_enlace_fijo.TestEnlaceFijo.test_api_ngrok_valida_servidor_del_mismo_puerto) ... ok
+test_clave_corrupta_no_se_sustituye (test_enlace_fijo.TestEnlaceFijo.test_clave_corrupta_no_se_sustituye) ... ok
+test_clave_persiste_entre_ejecuciones (test_enlace_fijo.TestEnlaceFijo.test_clave_persiste_entre_ejecuciones) ... ok
+test_dominio_se_conserva_en_configuracion (test_enlace_fijo.TestEnlaceFijo.test_dominio_se_conserva_en_configuracion) ... ok
+test_rechaza_enlace_inseguro (test_enlace_fijo.TestEnlaceFijo.test_rechaza_enlace_inseguro) ... ok
+test_rotar_clave_entrada_anterior_queda_obsoleta (test_enlace_fijo.TestEnlaceFijo.test_rotar_clave_entrada_anterior_queda_obsoleta) ... Clave cambiada. El enlace anterior dejara de funcionar en el proximo inicio.
+La direccion HTTPS de ngrok seguira siendo la misma; cambia ?key=.
+ok
+test_cannot_create_session_without_key (test_mobile_web.WebMobileTests.test_cannot_create_session_without_key) ... 127.0.0.1 - - [26/Nov/2026 00:49:12] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:12] "POST /api/session HTTP/1.1" 403 -
+ok
+test_common_fields_and_duplicate (test_mobile_web.WebMobileTests.test_common_fields_and_duplicate) ... 127.0.0.1 - - [26/Nov/2026 00:49:13] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:13] "POST /api/common HTTP/1.1" 200 -
+ok
+test_invalid_browser_session_denied (test_mobile_web.WebMobileTests.test_invalid_browser_session_denied) ... 127.0.0.1 - - [26/Nov/2026 00:49:13] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:13] "GET /api/status HTTP/1.1" 403 -
+ok
+test_mobile_html (test_mobile_web.WebMobileTests.test_mobile_html) ... 127.0.0.1 - - [26/Nov/2026 00:49:14] "POST /api/session HTTP/1.1" 200 -
+ok
+test_no_documents_shared_across_browsers (test_mobile_web.WebMobileTests.test_no_documents_shared_across_browsers)
+Dos navegadores con el MISMO enlace tienen espacios totalmente separados. ... 127.0.0.1 - - [26/Nov/2026 00:49:14] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "GET /api/status HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "GET /api/status HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "GET /api/status HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "GET /api/status HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "POST /api/update HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "POST /api/update HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "POST /api/validate HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "GET /api/download HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "GET /api/download HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "GET /api/report HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:14] "GET /api/report HTTP/1.1" 200 -
+ok
+test_requires_access_key (test_mobile_web.WebMobileTests.test_requires_access_key) ... 127.0.0.1 - - [26/Nov/2026 00:49:15] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:15] "GET /api/status HTTP/1.1" 403 -
+ok
+test_sanitizes_filenames (test_mobile_web.WebMobileTests.test_sanitizes_filenames) ... 127.0.0.1 - - [26/Nov/2026 00:49:15] "POST /api/session HTTP/1.1" 200 -
+ok
+test_save_destination_security_and_session_isolation (test_mobile_web.WebMobileTests.test_save_destination_security_and_session_isolation) ... 127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/outputs HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/outputs HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/output-file?name=..%2F..%2Fcore.py HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/output-file?name=missing.pdf HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/outputs HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/output-file?name=NDB-BSSP-E01-P00-PLA-EST-001-Casa.pdf HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/outputs HTTP/1.1" 403 -
+ok
+test_upload_validate_generate_download (test_mobile_web.WebMobileTests.test_upload_validate_generate_download) ... 127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/validate HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/update HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/update HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/validate HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/outputs HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/output-file?name=NDB-BSSP-E01-P00-PLA-EST-007-PlanoFinal-S0-0100.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/download HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/report HTTP/1.1" 200 -
+ok
+test_api_rejects_missing_wrong_key_and_accepts_correct_key (test_remote_access.RemoteAccessTests.test_api_rejects_missing_wrong_key_and_accepts_correct_key) ... 127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/status HTTP/1.1" 403 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/status HTTP/1.1" 403 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "POST /api/session HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/status HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 00:49:16] "GET /api/status HTTP/1.1" 200 -
+ok
+test_link_contains_secret_required_by_web_app (test_remote_access.RemoteAccessTests.test_link_contains_secret_required_by_web_app) ... ok
+test_startup_does_not_ask_for_email (test_remote_access.RemoteAccessTests.test_startup_does_not_ask_for_email) ... ok
+test_tunnel_uses_standard_cloudflare_quick_tunnel_without_email (test_remote_access.RemoteAccessTests.test_tunnel_uses_standard_cloudflare_quick_tunnel_without_email) ... ok
+test_theme (unittest.loader._FailedTest.test_theme) ... ERROR
+
+======================================================================
+ERROR: test_theme (unittest.loader._FailedTest.test_theme)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_theme
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "/home/claude/BIM_Doc_Manager/tests/test_theme.py", line 8, in <module>
+    from ui_theme import ThemeController, THEMES
+  File "/home/claude/BIM_Doc_Manager/ui_theme.py", line 9, in <module>
+    import tkinter as tk
+ModuleNotFoundError: No module named 'tkinter'
+
+
+----------------------------------------------------------------------
+Ran 45 tests in 7.154s
+
+FAILED (errors=1)

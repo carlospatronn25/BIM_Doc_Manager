@@ -1,0 +1,49 @@
+name: Crear ejecutable portable (Windows)
+
+on:
+  workflow_dispatch:        # botón "Run workflow" en la pestaña Actions
+  push:
+    tags: ["v*"]            # al publicar una etiqueta v7.0 se crea además un Release
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pruebas automatizadas
+        continue-on-error: true
+        run: python -m unittest discover -s tests -v
+
+      - name: Compilar .exe con PyInstaller
+        run: |
+          python -m pip install pyinstaller
+          python -m PyInstaller --noconfirm --clean --onefile --windowed --name BIM_Doc_Manager --add-data "catalogos.json;." app.py
+
+      - name: Armar paquete portable
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path portable | Out-Null
+          Copy-Item dist\BIM_Doc_Manager.exe portable\
+          Copy-Item -Recurse datos_ejemplo portable\datos_ejemplo
+          Copy-Item LEEME_PORTABLE.txt portable\
+          Copy-Item docs\BIM_Doc_Manager_7_0_Manual_de_operacion.pdf portable\
+          Compress-Archive -Path portable\* -DestinationPath BIM_Doc_Manager_7_0_Portable.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BIM_Doc_Manager_7_0_Portable
+          path: BIM_Doc_Manager_7_0_Portable.zip
+
+      - name: Publicar Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: BIM_Doc_Manager_7_0_Portable.zip

@@ -1,0 +1,5 @@
+﻿archivo,proyecto,creador,volumen,nivel,tipo,disciplina,numero,descripcion,estado,revision,nombre_propuesto,resultado,detalle,origen
+detalle escalera.pdf,OBR01,EQ02,E01,P02,PLA,,9,,,,,PENDIENTE,Faltan campos obligatorios: Disciplina,datos_ejemplo/documentos/detalle escalera.pdf
+estructura corregida.pdf,OBR01,EQ02,E01,P01,PLA,EST,008,,,,OBR01-EQ02-E01-P01-PLA-EST-008.pdf,BLOQUEADO,Dos o más documentos del lote producirían el mismo nombre; modifica los campos diferenciadores.,datos_ejemplo/documentos/estructura corregida.pdf
+estructura v2.pdf,OBR01,EQ02,E01,P01,PLA,EST,008,,,,OBR01-EQ02-E01-P01-PLA-EST-008.pdf,BLOQUEADO,Dos o más documentos del lote producirían el mismo nombre; modifica los campos diferenciadores.,datos_ejemplo/documentos/estructura v2.pdf
+plano final.pdf,OBR01,EQ02,E01,P00,PLA,EST,007,,,,OBR01-EQ02-E01-P00-PLA-EST-007.pdf,GENERADO,Copia creada correctamente: OBR01-EQ02-E01-P00-PLA-EST-007.pdf,datos_ejemplo/documentos/plano final.pdf
